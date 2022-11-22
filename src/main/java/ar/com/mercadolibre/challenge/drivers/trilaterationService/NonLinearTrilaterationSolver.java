@@ -20,7 +20,7 @@ public class NonLinearTrilaterationSolver implements ITrilaterationService {
         if (distances.stream().anyMatch(Objects::isNull) || positions.isEmpty() || distances.isEmpty())
             throw new BadRequestException("Error: Distances and/or Positions not found");
 
-        NonLinearLeastSquaresSolver solver = new NonLinearLeastSquaresSolver(new TrilaterationFunction(locationsToDouble(positions), distances.stream().mapToDouble(Float::doubleValue).toArray()), new LevenbergMarquardtOptimizer());
+        NonLinearLeastSquaresSolver solver = new NonLinearLeastSquaresSolver(new TrilaterationFunction(positionsToDouble(positions), distances.stream().mapToDouble(Float::doubleValue).toArray()), new LevenbergMarquardtOptimizer());
         LeastSquaresOptimizer.Optimum optimum = solver.solve();
 
 
@@ -32,7 +32,7 @@ public class NonLinearTrilaterationSolver implements ITrilaterationService {
 
     }
 
-    private double[][] locationsToDouble(List<Position> positions) throws BadRequestException {
+    private double[][] positionsToDouble(List<Position> positions) throws BadRequestException {
         double[][] positionDouble = null;
         try {
             positionDouble = new double[][]{{positions.get(0).getX(), positions.get(0).getY()}, {positions.get(1).getX(), positions.get(1).getY()}, {positions.get(2).getX(), positions.get(2).getY()}};

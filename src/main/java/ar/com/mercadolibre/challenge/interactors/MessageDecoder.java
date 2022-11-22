@@ -44,12 +44,11 @@ public class MessageDecoder {
 
     public ResponseDTO getMessageAndLocationForOneSatellite(String name) throws BadRequestException {
         Optional<Satellite> satelliteOptional = satelliteRepository.findSatelliteByName(name);
-        Satellite satellite = satelliteOptional.get();
-        SatelliteDTO satelliteDTO = new  SatelliteDTO(satellite.getName(), satellite.getPosition(), (ArrayList<String>) satellite.getMessage());
-
         if(satelliteOptional.isEmpty()){
             throw new BadRequestException("Satellite not found");
         }
+        Satellite satellite = satelliteOptional.get();
+        SatelliteDTO satelliteDTO = new  SatelliteDTO(satellite.getName(), satellite.getPosition(), (ArrayList<String>) satellite.getMessage());
 
         return new ResponseDTO(satelliteDTO.getPosition(), String.join(" ", satellite.getMessage()));
 

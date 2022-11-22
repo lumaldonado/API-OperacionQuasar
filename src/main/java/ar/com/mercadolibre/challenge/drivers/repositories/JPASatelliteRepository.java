@@ -6,7 +6,6 @@ import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
-@Repository
 public interface JPASatelliteRepository extends JpaRepository<Satellite, Integer> {
 
     Optional<Satellite> findByName(String name);

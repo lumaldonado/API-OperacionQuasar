@@ -32,6 +32,12 @@ public class Satellite {
         this.position = position;
     }
 
+    public Satellite(String name, Position position, String message){
+        this.name = name;
+        this.position = position;
+        this.message = message;
+    }
+
     public List<String> getMessage() {
         return message != null ?  Arrays.stream(message.split(",")).map(s -> s.replace(" ","")).collect(Collectors.toList()): null;
     }
