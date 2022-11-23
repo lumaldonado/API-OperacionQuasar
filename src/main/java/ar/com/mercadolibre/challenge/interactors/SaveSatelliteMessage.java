@@ -18,7 +18,7 @@ public class SaveSatelliteMessage {
     public void saveMessage(SatelliteDTO satelite) throws BadRequestException {
         Optional<Satellite> satelliteDb = satelliteRepository.findSatelliteByName(satelite.getName());
 
-        if (satelliteDb.isEmpty())
+        if (!satelliteDb.isPresent())
             throw new BadRequestException("Satellite not found");
 
         satelliteDb.get().setMessage(satelite.getMessage());
