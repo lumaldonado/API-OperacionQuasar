@@ -35,16 +35,22 @@ public class SatelliteController {
     }
 
     @PostMapping("/topsecret_split/{satellite_name}")
-    public ResponseEntity<String> saveMessage(@PathVariable(value = "satellite_name") String name, @RequestBody SatelliteDTO sateliteDTO) throws BadRequestException {
-        sateliteDTO.setName(name);
-        saveMessage.saveMessage(sateliteDTO);
-        return ResponseEntity.ok("Message saved");
+    public ResponseEntity<String> saveMessage(@PathVariable(value = "satellite_name") String name, @RequestBody SatelliteDTO sateliteDTO) throws CommunicationException {
+        try{ sateliteDTO.setName(name);
+            saveMessage.saveMessage(sateliteDTO);
+            return ResponseEntity.ok("Message saved");}
+        catch(Exception e){
+            throw new CommunicationException("Error: Failed to save message");
+        }
     }
 
 
     @GetMapping("/topsecret_split/{satellite_name}")
-    public ResponseDTO decodeMessageAndGetDistanceForOneSatellite(@PathVariable(value = "satellite_name") String name) throws BadRequestException {
-        return decoder.getMessageAndLocationForOneSatellite(name);
+    public ResponseDTO decodeMessageAndGetDistanceForOneSatellite(@PathVariable(value = "satellite_name") String name) throws CommunicationException {
+        try{ return decoder.getMessageAndLocationForOneSatellite(name);}
+        catch (Exception e){
+            throw new CommunicationException("Error: Satellite not found");
+        }
     }
 
     @GetMapping("/topsecret_split")
