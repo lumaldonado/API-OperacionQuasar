@@ -1,5 +1,5 @@
 # # API-Operacion de Quasar
-API REST con el objetivo de obtener la ubicacion y poder decodificar el mensaje de auxilio de un nave imperial a la deriva, utilizando 3 satelites a distintas distancias.
+API REST creada con el objetivo de obtener la ubicacion y poder decodificar el mensaje de auxilio de un nave imperial a la deriva, utilizando 3 satelites a distintas distancias.
 
 Tecnología utilizada: Springboot
 
@@ -26,7 +26,7 @@ Tener en cuenta de que en caso de ejecutarlo de forma local utilizar: http://loc
 
 # # Datos a tener en cuenta:
 -H2 en una base de datos relacional en memoria que en el caso de este proyecto no es persistida. Con esto se quiere decir que una vez que el proyecto deje de correr los datos guardados en ella van a ser borrados y por ello no se recomienda su uso en ambientes productivos.
-Tambien implica que se recomienda verificar la existencia de los diferentes satelites en la base de datos haciendo uso del endpoint (/topsecret_split/{satellite_name}), ya que alguno de ellos podria estar fallando por esa misma razon.
+Tambien implica que se recomienda verificar la existencia de los diferentes satelites en la base de datos haciendo uso del endpoint GET (/topsecret_split/{satellite_name}), ya que alguno de ellos podria estar fallando por esa misma razon.
 
 -En caso de querer acceder a la consola de H2 primero asegurarse de que en el application.properties el siguiente elemento este de esta manera: spring.h2.console.enabled=true (en caso de estar false no permitira acceder a la consola)
 Una vez verificado eso, se puede acceder a la misma con el siguiente endpoint: http://localhost:8080/h2-console y usando como password = password.
