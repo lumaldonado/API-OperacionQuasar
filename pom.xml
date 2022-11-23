@@ -12,7 +12,7 @@
 	<artifactId>challenge</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>challenge</name>
-	<description>Demo project for Spring Boot</description>
+	<description>quasar</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
@@ -24,7 +24,18 @@
 		<dependency>
 			<groupId>com.lemmingapex.trilateration</groupId>
 			<artifactId>trilateration</artifactId>
-			<version>1.0.1</version>
+			<version>1.0.2</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>19.0</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>30.0-jre</version>
 		</dependency>
 		<dependency>
 			<groupId>com.jayway.jsonpath</groupId>
