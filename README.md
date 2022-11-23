@@ -7,7 +7,7 @@ Lenguaje: Java 11
 
 Data base: H2
 
-Deploy en Heroku: https://empleadas-luciana-maldonado.herokuapp.com
+Deploy en Heroku: https://challenge-luciana-maldonado.herokuapp.com
 
 Documentacion en Postman: https://documenter.getpostman.com/view/24571389/2s8YsnWbRh
 
@@ -43,7 +43,6 @@ Una vez verificado eso, se puede acceder a la misma con el siguiente endpoint: h
 # # Tipo de arquitectura utilizada:
 
 El proyecto se creo siguiendo las bases y estructura de la arquitectura hexagonal, un tipo de clean architecture.
-Con el siguiente flujo 
 
 # #Testing
 
